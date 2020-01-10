@@ -1,5 +1,13 @@
 body {
     text-align: center;
+    margin: 0;
+    margin: 35px auto;
+}
+
+header {
+    background-color: #F15B31;
+    color: #FFFFFF;
+    padding: 30px 20px;
 }
 
 h1, h2 {
@@ -11,23 +19,92 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+h1 {
+    margin: 0;
+}
+
 h2 {
     font-size: 20px;
     font-weight: 600;
 }
 
+nav {
+    background-color: #00A6B3;
+    color: #FFFFFF;
+    padding: 20px 0;
+}
+
+nav a {
+    border-bottom: 2px solid transparent;
+}
+
 a {
     font-size: 18px;
     font-family: "Raleway", sans-serif;
-    color: #F15B31;
+    color: #FFFFFF;
     font-kerning: 1px;
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
+    margin: 0px 20px;
+}
+
+a:hover {
+    border-color: #FFFFFF;
 }
     
-p {
+main {
     font-family: "Droid Serif", serif;
     line-height: 26px;
     font-size: 18px;
+    width: 850px;
+    margin: 0 auto;
+}
+
+img {
+    margin: 40px 8px;
+}
+
+footer {
+    text-transform: uppercase;
+    padding: 5px 20px;
+    background-color: #0D2C40;
+    color: #FFFFFF;
+    font-size: 14px;
+    letter-spacing: .08em;
+    font-weight: 500;
+    font-family: "Droid Serif", serif;
+    line-height: 26px;
+    font-size: 18px;
+}
+
+footer p {
+    margin: 20px 0;
+}
+
+.copyright {
+    float: left;
+    clear: both;
+}
+
+.message {
+    float: right;
+}
+
+.name {
+    color: #F15B31;
+    font-weight: 700;
+}
+
+@supports (display: flow-root) {
+	.cf {
+	  display: flow-root;
+  }
+}
+@supports not (display: flow-root) {
+	.cf:after {
+	  content: "";
+	  clear: both;
+	  display: block;
+  }
 }
