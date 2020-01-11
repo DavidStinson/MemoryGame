@@ -1,110 +1,124 @@
+/* =============================
+GENERAL STYLES 
+================================ */
 body {
-    text-align: center;
-    margin: 0;
-    margin: 35px auto;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
 
-header {
-    background-color: #F15B31;
-    color: #FFFFFF;
-    padding: 30px 20px;
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+  height: 0;
+  font-size: 0;
 }
 
+/* =============================
+TYPOGRAPHY
+================================ */
 h1, h2 {
-    font-size: 45px;
-    font-family: "Raleway", sans-serif;
-    color: #0D2C40;
-    font-kerning: 1px;
-    font-weight: 400;
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 h1 {
-    margin: 0;
+  color: white;
+  font-size: 45px;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.05em;
 }
 
 h2 {
-    font-size: 20px;
-    font-weight: 600;
+  color: #0D2C40;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 20px;
 }
 
-nav {
-    background-color: #00A6B3;
-    color: #FFFFFF;
-    padding: 20px 0;
-}
-
-nav a {
-    border-bottom: 2px solid transparent;
+p {
+  font-family: "Droid Serif", serif;
+  line-height: 26px;
 }
 
 a {
-    font-size: 18px;
-    font-family: "Raleway", sans-serif;
-    color: #FFFFFF;
-    font-kerning: 1px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin: 0px 20px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .06em;
+
+  margin: 0 20px;
+  /* For hover style transition (bonus) */
+  border-bottom: 2px solid transparent;
+/*   transition: all .3s ease-in-out; */
 }
 
 a:hover {
-    border-color: #FFFFFF;
+  border-bottom: 2px solid white;
 }
-    
+/* =============================
+HEADER
+================================ */
+header {
+  background-color: #F15B31;
+  padding: 30px 20px;
+}
+
+/* =============================
+NAV
+================================ */
+nav {
+  background-color: #00A6B3;
+  padding: 20px 0;
+}
+
+/* =============================
+MAIN SECTION
+================================ */
+
 main {
-    font-family: "Droid Serif", serif;
-    line-height: 26px;
-    font-size: 18px;
-    width: 850px;
-    margin: 0 auto;
+  width: 850px;
+  margin: 35px auto;
 }
 
+
+/* =============================
+GAME BOARD
+================================ */
 img {
-    margin: 40px 8px;
+  margin: 40px 8px 0;
 }
 
+/* =============================
+FOOTER
+================================ */
 footer {
-    text-transform: uppercase;
-    padding: 5px 20px;
-    background-color: #0D2C40;
-    color: #FFFFFF;
-    font-size: 14px;
-    letter-spacing: .08em;
-    font-weight: 500;
-    font-family: "Droid Serif", serif;
-    line-height: 26px;
-    font-size: 18px;
-}
+  text-transform: uppercase;
+  padding: 0 20px;
+  background-color: #0D2C40;
+  color: white;
+  font-size: 14px;
+  letter-spacing: .08em;
+  font-weight: 500;
 
-footer p {
-    margin: 20px 0;
 }
 
 .copyright {
-    float: left;
-    clear: both;
+  float: left;
+  font-family: "Raleway", sans-serif;
 }
 
 .message {
-    float: right;
+  float: right;
+  font-family: "Raleway", sans-serif;
 }
 
 .name {
-    color: #F15B31;
-    font-weight: 700;
-}
-
-@supports (display: flow-root) {
-	.cf {
-	  display: flow-root;
-  }
-}
-@supports not (display: flow-root) {
-	.cf:after {
-	  content: "";
-	  clear: both;
-	  display: block;
-  }
+  color: #F15B31;
+  font-weight: bold;
 }
