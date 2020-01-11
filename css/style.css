@@ -1,5 +1,5 @@
 /* =============================
-GENERAL STYLES 
+GENERAL STYLES
 ================================ */
 body {
   font-family: "Raleway", sans-serif;
@@ -9,13 +9,17 @@ body {
   margin: 0;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  content: " ";
+@supports (display: flow-root) {
+.cf {
+  display: flow-root;
+  }
+}
+@supports not (display: flow-root) {
+.cf:after {
+  content: "";
   clear: both;
-  height: 0;
-  font-size: 0;
+  display: block;
+  }
 }
 
 /* =============================
