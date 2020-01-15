@@ -22,6 +22,10 @@ let cards = [
   }
 ]
 let cardsInPlay = [];
+let playerWins = 0;
+let playerLosses = 0;
+let playerWinsMessage = "";
+let playerLossesMessage = "";
 
 function createBoard() {
   for (let i = 0; i < cards.length; i++){
@@ -50,11 +54,39 @@ function resetGame() {
   cardsInPlay = [];
 }
 
+function playerWon(playerWon) {
+  playerWon === true ? playerWins++ : playerLosses++;
+  switch (playerWins) {
+    case 0:
+      playerWinsMessage = "You have not won yet"
+      break;
+    case 1:
+      playerWinsMessage = "You have won 1 time"
+      break;
+    default:
+      playerWinsMessage = "You have won " + playerWins + " times"
+  }
+  switch (playerLosses) {
+    case 0:
+      playerLossesMessage = "have not lost yet."
+      break;
+    case 1:
+      playerLossesMessage = "have lost once."
+      break;
+    default:
+      playerLossesMessage = "have lost " + playerLosses + " times."
+
+  }
+  console.log(playerWinsMessage + " and " + playerLossesMessage);
+}
+
 function checkForMatch() {
   if ( cardsInPlay[0] === cardsInPlay[1] ) {
     console.log("Oh wow! You found a match!")
+    playerWon(true);
   } else {
     console.log("Boo no match :( Try again!")
+    playerWon(false);
   }
   window.setTimeout(resetGame, 1000)
 }
