@@ -30,20 +30,15 @@ let shuffledCards = [];
 let cardInPlayId = -1;
 let playerWins = 0;
 let playerLosses = 0;
-let playerWinsMessage = "";
-let playerLossesMessage = "";
 
 // Shuffle the cards on the game board so every game is different
-function cardRandomizer() {
+function cardShuffle() {
   // Create a temporary array (cardsToShuffle) to fill with the cards
-  // in the cards array. This array will be destroyed as it is being
-  // operated on.
-  let cardsToShuffle = [];
-  for (let i = 0; i < cards.length; i++) {
-    cardsToShuffle[i] = cards[i];
-  }
+  // in the cards array.
+  let cardsToShuffle = cards.slice(0);
   // Create a new array (shuffledCards) filled with the shuffled cards.
-  // This is the array that players interact with.
+  // This is the array that players interact with. The temporary array
+  // (cardsToShuffle) is destroyed in this process.
   let i = 0;
   while (i < cards.length) {
     let randomIndex = Math.floor(Math.random()*cardsToShuffle.length)
@@ -84,7 +79,7 @@ function resetBoard() {
 // that have been flipped, remove any guesses from the cardsInPlay,
 // and the cardInPlayId.
 function resetGame() {
-  cardRandomizer();
+  cardShuffle();
   resetBoard();
   cardsInPlay = [];
   cardInPlayId = -1;
@@ -108,8 +103,10 @@ function resumeBoard() {
 }
 
 // Builds and displays the playerScoreMessage showing the player their
-// total wins and losses
+// total number of wins and losses
 function playerScoreMessage() {
+  let playerWinsMessage = "";
+  let playerLossesMessage = "";
   switch (playerWins) {
     case 0:
       playerWinsMessage = "You have not won yet";
@@ -143,7 +140,7 @@ function checkForMatch() {
     playerLosses++;
   }
   playerScoreMessage();
-  // Restart the game after 1 second. 
+  // Restart the game after 1 second.
   window.setTimeout(resumeBoard, 1000)
 }
 
@@ -177,6 +174,6 @@ function processGuess() {
 
 // On first launch, randomize the cards, build the board, and activate
 // the reset button.
-cardRandomizer();
+cardShuffle();
 createBoard();
 resetButtonListener();
