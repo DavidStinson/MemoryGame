@@ -48,7 +48,7 @@ function cardShuffle() {
   }
 }
 
-// Places the shuffled cards (shuffledCards) on the game board and
+// Places the shuffledCards on the game board and
 // starts to listen for user to interact with cards.
 function createBoard() {
   for (let i = 0; i < shuffledCards.length; i++){
@@ -105,6 +105,7 @@ function resumeBoard() {
 // Builds and displays the playerScoreMessage showing the player their
 // total number of wins and losses
 function playerScoreMessage() {
+  let scoreMessage = document.getElementById("score")
   let playerWinsMessage = "";
   let playerLossesMessage = "";
   switch (playerWins) {
@@ -127,7 +128,7 @@ function playerScoreMessage() {
     default:
       playerLossesMessage = "have lost " + playerLosses + " times.";
   }
-  console.log(playerWinsMessage + " and " + playerLossesMessage);
+  scoreMessage.textContent = playerWinsMessage + " and " + playerLossesMessage;
 }
 
 // Checks if the player has won or lost.
@@ -147,11 +148,12 @@ function checkForMatch() {
 // Process the player's guess - is it a valid guess?
 function processGuess() {
   let cardId = this.getAttribute("id");
+  let lastGuess = document.getElementById("lastCard")
   // If it is not a valid guess accuse the player of being a dirty cheater!
   if (cardInPlayId == cardId) {
     // Really this could just fail gracefully without accusing the player
     // of cheating but what's the fun in that?
-    console.log("You're not trying to cheat are you?!")
+    lastGuess.textContent= "You're not trying to cheat are you?!";
   // If it is a valid guess then...
   } else {
     // Set the card as the cardInPlayId to check for cheating.
@@ -159,8 +161,8 @@ function processGuess() {
     // Add the chosen card to the cardsInPlay array.
     cardsInPlay.push(shuffledCards[cardId].rank);
     // Log the card the user chose.
-    console.log("You flipped the " + shuffledCards[cardId].rank +
-      " of " + shuffledCards[cardId].suit);
+    lastGuess.textContent = "You flipped the " + shuffledCards[cardId].rank +
+      " of " + shuffledCards[cardId].suit;
     // Display the card the user chose.
     this.setAttribute("src", shuffledCards[cardId].cardImage)
     // When the palyer has made 2 guesses, pause the game board and
